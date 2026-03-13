@@ -88,82 +88,102 @@ export default function HomePage() {
       </section>
 
 
-      {/* SERVICES */}
-      <section className="bg-sky-50 py-20 rounded-xl">
-        <h2 className="text-4xl font-bold text-center text-blue-700 mb-14">
-          Our Services
-        </h2>
+     {/* ================= SERVICES ================= */}
+<section className="bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-100 py-24">
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6">
+  <h2 className="text-4xl font-bold text-center text-blue-800 mb-16">
+    Our Services
+  </h2>
 
-          <div className="bg-white p-8 rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition">
-            <h3 className="text-xl font-bold text-blue-600 mb-3">
-              ✈️ Air Freight
-            </h3>
-            <p>
-              Fast international cargo delivery worldwide with secure
-              handling and efficient customs processing.
-            </p>
-          </div>
+  <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto px-6">
 
-          <div className="bg-white p-8 rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition">
-            <h3 className="text-xl font-bold text-blue-600 mb-3">
-              🚢 Sea Freight
-            </h3>
-            <p>
-              Reliable and economical shipping solutions for large cargo
-              and global import/export logistics.
-            </p>
-          </div>
+    {/* Air Freight */}
+    <div className="bg-white/70 backdrop-blur-lg border border-blue-100 p-10 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-3 transition duration-300">
+      <div className="text-4xl mb-4">✈️</div>
+      <h3 className="text-xl font-bold text-blue-700 mb-3">
+        Air Freight
+      </h3>
+      <p className="text-gray-600">
+        Fast international cargo delivery worldwide with secure handling
+        and efficient customs processing.
+      </p>
+    </div>
 
-          <div className="bg-white p-8 rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition">
-            <h3 className="text-xl font-bold text-blue-600 mb-3">
-              📦 Cargo Tracking
-            </h3>
-            <p>
-              Monitor shipments in real time through our advanced cargo
-              tracking system available 24/7.
-            </p>
-          </div>
+    {/* Sea Freight */}
+    <div className="bg-white/70 backdrop-blur-lg border border-blue-100 p-10 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-3 transition duration-300">
+      <div className="text-4xl mb-4">🚢</div>
+      <h3 className="text-xl font-bold text-blue-700 mb-3">
+        Sea Freight
+      </h3>
+      <p className="text-gray-600">
+        Reliable and economical shipping solutions for large cargo and
+        global import/export logistics.
+      </p>
+    </div>
 
-        </div>
-      </section>
+    {/* Cargo Tracking */}
+    <div className="bg-white/70 backdrop-blur-lg border border-blue-100 p-10 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-3 transition duration-300">
+      <div className="text-4xl mb-4">📦</div>
+      <h3 className="text-xl font-bold text-blue-700 mb-3">
+        Cargo Tracking
+      </h3>
+      <p className="text-gray-600">
+        Monitor shipments in real time through our advanced cargo tracking
+        system available 24/7.
+      </p>
+    </div>
+
+  </div>
+</section>
 
 
-      {/* WHY CHOOSE US */}
-      <section className="py-20 bg-white text-center px-6">
-        <h2 className="text-4xl font-bold text-blue-700 mb-14">
-          Why Choose Jaliwa Freight Ltd
-        </h2>
+{/* ================= WHY CHOOSE US ================= */}
+<section className="bg-gradient-to-r from-blue-700 via-cyan-600 to-blue-800 text-white py-24">
 
-        <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+  <h2 className="text-4xl font-bold text-center mb-16">
+    Why Choose Jaliwa Freight Ltd
+  </h2>
 
-          <div>
-            <h3 className="font-semibold text-lg mb-2">⚡ Fast Delivery</h3>
-            <p className="text-gray-600">
-              Optimized logistics routes ensure faster cargo transportation
-              across international destinations.
-            </p>
-          </div>
+  <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto px-6 text-center">
 
-          <div>
-            <h3 className="font-semibold text-lg mb-2">🌍 Global Network</h3>
-            <p className="text-gray-600">
-              Strong partnerships with international carriers and agents
-              worldwide.
-            </p>
-          </div>
+    {/* Fast Delivery */}
+    <div className="bg-white/10 backdrop-blur-lg p-10 rounded-2xl shadow-lg hover:scale-105 transition">
+      <div className="text-4xl mb-4">⚡</div>
+      <h3 className="font-semibold text-xl mb-3">
+        Fast Delivery
+      </h3>
+      <p className="text-blue-100">
+        Optimized logistics routes ensure faster cargo transportation
+        across international destinations.
+      </p>
+    </div>
 
-          <div>
-            <h3 className="font-semibold text-lg mb-2">🔒 Secure Handling</h3>
-            <p className="text-gray-600">
-              Professional cargo management ensuring safety, reliability,
-              and compliance with global standards.
-            </p>
-          </div>
+    {/* Global Network */}
+    <div className="bg-white/10 backdrop-blur-lg p-10 rounded-2xl shadow-lg hover:scale-105 transition">
+      <div className="text-4xl mb-4">🌍</div>
+      <h3 className="font-semibold text-xl mb-3">
+        Global Network
+      </h3>
+      <p className="text-blue-100">
+        Strong partnerships with international carriers and agents
+        worldwide.
+      </p>
+    </div>
 
-        </div>
-      </section>
+    {/* Secure Handling */}
+    <div className="bg-white/10 backdrop-blur-lg p-10 rounded-2xl shadow-lg hover:scale-105 transition">
+      <div className="text-4xl mb-4">🔒</div>
+      <h3 className="font-semibold text-xl mb-3">
+        Secure Handling
+      </h3>
+      <p className="text-blue-100">
+        Professional cargo management ensuring safety, reliability,
+        and compliance with global standards.
+      </p>
+    </div>
+
+  </div>
+</section>
 
 
       {/* TRACK CTA */}
