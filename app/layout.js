@@ -9,13 +9,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="flex flex-col min-h-screen bg-gray-50 text-gray-800">
+      <body className="flex flex-col min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100 text-gray-800">
 
-        {/* ================= HEADER ================= */}
-        <header className="bg-white shadow-md">
+        {/* HEADER */}
+        <header className="bg-white shadow-md border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
-            {/* LOGO */}
+            {/* LOGO + COMPANY NAME */}
             <div className="flex items-center gap-3">
               <img
                 src="/logo.png"
@@ -23,78 +23,80 @@ export default function RootLayout({ children }) {
                 width="45"
                 height="45"
               />
-
               <h1 className="text-xl font-bold text-blue-700">
                 Jaliwa Freight Ltd
               </h1>
             </div>
 
             {/* NAVIGATION */}
-            <nav className="space-x-6 font-medium text-gray-700">
-              <Link href="/" className="hover:text-blue-600">
+            <nav className="flex items-center gap-8 text-gray-700 font-medium">
+
+              <Link
+                href="/"
+                className="hover:text-blue-600 transition"
+              >
                 Home
               </Link>
 
-              <Link href="/gallery" className="hover:text-blue-600">
+              <Link
+                href="/gallery"
+                className="hover:text-blue-600 transition"
+              >
                 Gallery
               </Link>
 
-              <Link href="/track" className="hover:text-blue-600">
-                Track Cargo
+              <Link
+                href="/contact"
+                className="hover:text-blue-600 transition"
+              >
+                Contact
               </Link>
 
               <Link
+                href="/track"
+                className="hover:text-blue-600 transition"
+              >
+                Track Cargo
+              </Link>
+
+              {/* GET QUOTE BUTTON */}
+              <Link
                 href="/quote"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition"
+                className="bg-blue-600 text-white px-5 py-2 rounded-lg shadow hover:bg-blue-700 transition"
               >
                 Get Quote
               </Link>
+
             </nav>
+
           </div>
         </header>
 
-        {/* ================= PAGE CONTENT ================= */}
+        {/* MAIN PAGE CONTENT */}
         <main className="flex-grow">
           {children}
         </main>
 
-        {/* ================= FOOTER ================= */}
-        <footer className="bg-blue-900 text-white mt-10">
-          <div className="max-w-7xl mx-auto px-6 py-8 grid md:grid-cols-3 gap-8">
+        {/* FOOTER */}
+        <footer className="bg-white border-t border-gray-200 mt-10">
+          <div className="max-w-7xl mx-auto px-6 py-6 text-center text-gray-600">
 
-            <div>
-              <h3 className="font-bold text-lg mb-2">
-                Jaliwa Freight Ltd
-              </h3>
-              <p className="text-sm text-gray-200">
-                Reliable air freight and cargo logistics solutions
-                connecting Nairobi to the world.
-              </p>
-            </div>
+            <p className="font-semibold text-blue-700">
+              Jaliwa Freight Ltd
+            </p>
 
-            <div>
-              <h3 className="font-bold mb-2">Quick Links</h3>
-              <ul className="space-y-2 text-gray-200">
-                <li><Link href="/">Home</Link></li>
-                <li><Link href="/track">Track Shipment</Link></li>
-                <li><Link href="/gallery">Gallery</Link></li>
-                <li><Link href="/quote">Request Quote</Link></li>
-              </ul>
-            </div>
+            <p className="text-sm mt-1">
+              JKIA-Toll, Nairobi, Kenya
+            </p>
 
-            <div>
-              <h3 className="font-bold mb-2">Contact</h3>
-              <p className="text-gray-200 text-sm">
-                Nairobi, Kenya <br />
-                Email: info@jaliwafreightltd.com <br />
-                Phone: +254 119981188
-              </p>
-            </div>
+            <p className="text-sm">
+              Phone: +254 119 981 188
+            </p>
 
-          </div>
+            <p className="text-xs mt-3 text-gray-500">
+              © {new Date().getFullYear()} Jaliwa Freight Ltd. All rights reserved.
+            </p>
 
-          <div className="text-center text-sm bg-blue-950 py-3">
-            © {new Date().getFullYear()} Jaliwa Freight Ltd. All rights reserved.
           </div>
         </footer>
 
