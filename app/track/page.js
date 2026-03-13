@@ -28,87 +28,78 @@ export default function TrackPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 p-6 flex justify-center">
-      <div className="w-full max-w-3xl bg-white rounded-2xl shadow-xl p-8">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100 flex justify-center items-start py-12 px-4">
 
-        <h1 className="text-3xl font-bold text-blue-700 mb-6 text-center">
+      <div className="w-full max-w-3xl bg-white rounded-2xl shadow-2xl p-10 border border-blue-100">
+
+        <h1 className="text-4xl font-bold text-blue-700 mb-8 text-center">
           Track Your Shipment
         </h1>
 
         {/* SEARCH FORM */}
-        <form onSubmit={handleTrack} className="flex gap-3 mb-8">
+        <form onSubmit={handleTrack} className="flex gap-3 mb-10">
           <input
+            type="text"
+            placeholder="Enter Tracking Number"
             value={trackingNumber}
             onChange={(e) => setTrackingNumber(e.target.value)}
-            placeholder="Enter Tracking Number"
-            className="flex-1 border-2 border-blue-200 p-3 rounded-lg focus:outline-none focus:border-blue-500"
+            className="flex-1 border-2 border-blue-200 focus:border-blue-500 outline-none rounded-lg px-5 py-3 text-gray-800 shadow-sm"
             required
           />
 
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 rounded-lg">
-            Track
+          <button
+            type="submit"
+            className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-6 py-3 rounded-lg font-semibold shadow hover:scale-105 transition"
+          >
+            {loading ? "Tracking..." : "Track"}
           </button>
         </form>
 
-        {loading && (
-          <p className="text-center text-blue-600">Searching shipment...</p>
-        )}
-
         {/* RESULTS */}
-        {shipment && shipment.trackingNumber && (
-          <div>
+        {shipment && (
+          <div className="bg-blue-50 rounded-xl p-6 shadow-inner">
 
-            {/* Shipment Details */}
-            <div className="bg-blue-50 p-4 rounded-lg mb-8">
-              <p><b>Status:</b> {shipment.status}</p>
-              <p><b>Origin:</b> {shipment.origin}</p>
-              <p><b>Destination:</b> {shipment.destination}</p>
-              <p><b>Current Location:</b> {shipment.location}</p>
+            <h2 className="text-2xl font-semibold text-blue-700 mb-6">
+              Shipment Status
+            </h2>
+
+            {/* EVENTS */}
+            <div className="space-y-4">
+              {shipment.events?.map((event, index) => (
+                <div
+                  key={index}
+                  className="bg-white p-4 rounded-lg shadow border-l-4 border-blue-500"
+                >
+                  <p className="text-gray-800 font-semibold">
+                    📍 {event.location}
+                  </p>
+
+                  <p className="text-sm text-gray-600">
+                    {new Date(event.createdAt).toLocaleString()}
+                  </p>
+                </div>
+              ))}
             </div>
-
-    {/* TIMELINE */}
-<div className="relative border-l-4 border-blue-200 ml-4">
-
-  {shipment.events?.map((event, index) => (
-    <div key={index} className="mb-10 ml-6 relative">
-
-      <span className="absolute -left-[34px] flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white">
-        ✓
-      </span>
-
-      <h3 className="font-semibold text-blue-700 text-lg">
-        {event.status}
-      </h3>
-
-      <p className="text-gray-600">
-        📍 {event.location}
-      </p>
-
-      <p className="text-sm text-gray-400">
-        {new Date(event.createdAt).toLocaleString()}
-      </p>
-
-    </div>
-  ))}
-</div>
 
             {/* PROGRESS BAR */}
             <div className="mt-8">
               <div className="w-full bg-gray-200 rounded-full h-5 overflow-hidden">
                 <div
-                  className="bg-gradient-to-r from-blue-500 to-blue-700 h-5 rounded-full transition-all duration-700"
+                  className="bg-gradient-to-r from-blue-500 to-cyan-500 h-5 transition-all duration-700"
                   style={{ width: `${shipment.progress}%` }}
                 ></div>
               </div>
 
-              <p className="text-center mt-2 font-semibold text-blue-700">
+              <p className="text-center mt-3 font-semibold text-blue-700">
                 {shipment.progress}% Completed
               </p>
             </div>
 
           </div>
         )}
+
       </div>
+
     </div>
   );
 }
