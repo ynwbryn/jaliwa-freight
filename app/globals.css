@@ -1,56 +1,139 @@
 @import "tailwindcss";
 
+/* ROOT COLORS */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #f9fafb;
+  --foreground: #1f2937;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-}
-.gallery {
-padding:60px 10%;
-background:#f5f7fa;
-text-align:center;
+  margin: 0;
 }
 
-.gallery h2{
-font-size:32px;
-margin-bottom:40px;
-color:#1a2b49;
+/* Smooth buttons */
+button,
+a {
+  transition: all 0.3s ease;
 }
 
-.gallery-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
+/* Sections spacing */
+section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+/* ============================= */
+/* LOGISTICS BACKGROUND ANIMATION */
+/* ============================= */
+
+@keyframes planeMove {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
 }
 
-.gallery-grid img{
-width:100%;
-height:200px;
-object-fit:cover;
-border-radius:10px;
-box-shadow:0 5px 15px rgba(0,0,0,0.15);
-transition:0.3s;
+@keyframes truckMove {
+  0% { transform: translateX(120%); }
+  100% { transform: translateX(-120%); }
 }
 
-.gallery-grid img:hover{
-transform:scale(1.05);
+@keyframes shipMove {
+  0% { transform: translateX(-150%); }
+  100% { transform: translateX(150%); }
+}
+
+.animate-plane {
+  animation: planeMove 30s linear infinite;
+}
+
+.animate-truck {
+  animation: truckMove 40s linear infinite;
+}
+
+.animate-ship {
+  animation: shipMove 60s linear infinite;
+}
+/* ============================= */
+/* JALIWA PLANE FLOAT EFFECT */
+/* ============================= */
+
+@keyframes planeFloat {
+  0% {
+    transform: translateY(20px) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.03);
+  }
+  100% {
+    transform: translateY(20px) scale(1);
+  }
+}
+
+.animate-planeFloat {
+  animation: planeFloat 12s ease-in-out infinite;
+}
+@keyframes planeFloat {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-planeFloat {
+  animation: planeFloat 8s ease-in-out infinite;
+}
+.route-lines {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(59,130,246,0.3) 2px, transparent 3px),
+    radial-gradient(circle at 70% 60%, rgba(59,130,246,0.3) 2px, transparent 3px),
+    radial-gradient(circle at 40% 80%, rgba(59,130,246,0.3) 2px, transparent 3px);
+  animation: routesMove 18s linear infinite;
+}
+
+@keyframes routesMove {
+  from {
+    transform: translateX(-40px);
+  }
+  to {
+    transform: translateX(40px);
+  }
+}
+.network-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(37,99,235,0.25), transparent 60%),
+    radial-gradient(circle at 70% 60%, rgba(37,99,235,0.2), transparent 60%);
+  animation: glowPulse 6s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%,100% { opacity: .6; }
+  50% { opacity: 1; }
+}
+.speed-lines {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 120px,
+    rgba(255,255,255,0.04) 121px,
+    transparent 122px
+  );
+  animation: speedMove 12s linear infinite;
+}
+
+@keyframes speedMove {
+  from { transform: translateX(0); }
+  to { transform: translateX(-300px); }
 }

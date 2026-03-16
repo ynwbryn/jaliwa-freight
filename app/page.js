@@ -1,230 +1,383 @@
-export default function HomePage() {
+"use client";
+
+import { motion, useScroll, useTransform } from "framer-motion";
+import Link from "next/link";
+
+export default function Home() {
+ const { scrollY } = useScroll();
+
+const planeY = useTransform(scrollY, [0, 500], [0, 80]);
+const planeScale = useTransform(scrollY, [0, 500], [1, 1.08]); 
   return (
-    <div>
+    <main className="bg-white text-gray-900 overflow-hidden">
 
-      {/* HERO SECTION */}
-      <section className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 text-white py-24 text-center px-6">
-        <h1 className="text-5xl font-bold mb-6">
-          Global Freight & Logistics Solutions
-        </h1>
+    {/* ================= HERO SECTION ================= */}
+<section className="relative h-screen flex items-center justify-center overflow-hidden">
 
-        <p className="max-w-3xl mx-auto text-lg mb-8">
-          Jaliwa Freight Ltd is a trusted logistics and cargo solutions provider
-          specializing in international freight forwarding, cargo tracking,
-          and supply chain management. We connect businesses worldwide through
-          reliable, secure, and efficient transport systems.
+  {/* Plane Background */}
+  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+   <motion.img
+  src="/images/plane.png"
+  alt="Jaliwa Freight Aircraft"
+  style={{ y: planeY, scale: planeScale }}
+  className="
+    w-[1400px]
+    max-w-none
+    object-contain
+    opacity-90
+    animate-planeFloat
+    select-none
+  "
+/>
+  </div>
+<div className="network-glow"></div>
+{/* World Route Lines */}
+<div className="absolute inset-0 pointer-events-none">
+  <div className="route-lines"></div>
+</div>
+
+  {/* Premium Blue Gradient Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-r
+      from-blue-950/80
+      via-blue-900/40
+      to-transparent">
+  </div>
+
+  {/* Light Glow Effect */}
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_60%)]"></div>
+
+  {/* Hero Content */}
+  <div className="relative z-10 text-center text-white px-6">
+
+    <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+      Fast. Reliable. Global Freight.
+    </h1>
+
+    <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto mb-8">
+      Jaliwa Freight delivers secure logistics solutions across air, sea,
+      and road — connecting your business to the world.
+    </p>
+
+    <div className="flex gap-4 justify-center">
+      <a href="/quote">
+        <button className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold transition">
+          Get a Quote
+        </button>
+      </a>
+
+      <a href="/contact">
+        <button className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition">
+          Contact Us
+        </button>
+      </a>
+    </div>
+
+  </div>
+
+</section>
+       {/* LOGISTICS BACKGROUND VISUALS */}
+<div className="absolute inset-0 overflow-hidden pointer-events-none">
+
+  {/* Plane */}
+  <div className="absolute top-20 animate-plane opacity-20 text-white text-6xl font-bold whitespace-nowrap">
+    ✈ JALIWA FREIGHT AIR CARGO
+  </div>
+
+  {/* Truck */}
+  <div className="absolute bottom-24 animate-truck opacity-20 text-white text-5xl font-bold whitespace-nowrap">
+    🚛 JALIWA FREIGHT LOGISTICS
+  </div>
+
+  {/* Ship */}
+  <div className="absolute bottom-10 animate-ship opacity-20 text-white text-6xl font-bold whitespace-nowrap">
+    🚢 GLOBAL SHIPPING • JALIWA FREIGHT
+  </div>
+<div className="speed-lines"></div>
+</div>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center px-6"
+        >
+          <h1 className="text-5xl md:text-7xl font-bold text-white">
+            Fast. Reliable. Global Freight.
+          </h1>
+
+          <p className="mt-6 text-lg md:text-xl text-white max-w-2xl mx-auto">
+            Jaliwa Freight delivers secure logistics solutions across air,
+            sea, and road — connecting your business to the world.
+          </p>
+
+        
+        </motion.div>
+      
+{/* BRAND FLYERS / LOGISTICS BRANDING */}
+<section className="relative py-16 bg-white overflow-hidden">
+
+  {/* Reflector stripes */}
+  <div className="absolute top-0 left-0 w-full h-3 bg-yellow-400"></div>
+  <div className="absolute bottom-0 left-0 w-full h-3 bg-red-500"></div>
+
+  <div className="max-w-7xl mx-auto px-6">
+
+    <motion.h2
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      className="text-4xl font-bold text-center mb-12"
+    >
+      Powered by Jaliwa Freight Logistics
+    </motion.h2>
+
+    <div className="grid md:grid-cols-3 gap-8">
+
+      {/* PLANE FLYER */}
+      <motion.div
+        whileHover={{ scale: 1.05 }}
+        className="bg-gradient-to-br from-yellow-400 to-red-500 text-white p-8 rounded-2xl shadow-xl"
+      >
+        <h3 className="text-2xl font-bold mb-3">
+          ✈️ JALIWA AIR FREIGHT
+        </h3>
+
+        <p className="mb-4">
+          Our branded cargo aircraft deliver speed, safety, and reliability
+          across international routes.
         </p>
 
-        <div className="flex justify-center gap-4 flex-wrap">
-          <a
-            href="/quote"
-            className="bg-white text-blue-700 px-6 py-3 rounded-lg font-semibold shadow hover:scale-105 transition"
-          >
-            Get a Quote
-          </a>
-
-          <a
-            href="/track"
-            className="border border-white px-6 py-3 rounded-lg hover:bg-white hover:text-blue-700 transition"
-          >
-            Track Shipment
-          </a>
+        <div className="bg-white text-black px-4 py-2 rounded-lg inline-block font-semibold">
+          JALIWA FREIGHT LTD
         </div>
-      </section>
+      </motion.div>
 
+      {/* TRUCK FLYER */}
+      <motion.div
+        whileHover={{ scale: 1.05 }}
+        className="bg-black text-white p-8 rounded-2xl shadow-xl border-4 border-yellow-400"
+      >
+        <h3 className="text-2xl font-bold mb-3">
+          🚛 ROAD TRANSPORT
+        </h3>
 
-      {/* TRUST BAR */}
-      <section className="bg-white py-6 text-center shadow">
-        <p className="text-gray-700 font-medium">
-          Reliable Logistics • Global Shipping Network • Secure Cargo Handling • Real-Time Tracking
-        </p>
-      </section>
-
-
-      {/* ABOUT COMPANY */}
-      <section className="bg-gradient-to-b from-slate-900 to-blue-900 py-20 text-white text-center px-6">
-        <h2 className="text-4xl font-bold mb-6">About Our Company</h2>
-
-        <p className="max-w-3xl mx-auto text-gray-200 mb-14">
-          Jaliwa Freight Ltd is a leading logistics partner delivering
-          international cargo transportation across air, sea, and land.
-          With years of industry expertise, we provide reliable supply chain
-          solutions designed to help businesses expand globally.
+        <p className="mb-4">
+          Branded trucks moving cargo safely with high-visibility reflector
+          protection and real-time delivery tracking.
         </p>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-
-          <div className="bg-white text-gray-700 p-8 rounded-xl shadow-xl">
-            <h3 className="text-xl font-bold text-blue-600 mb-3">
-              Our Experience
-            </h3>
-            <p>
-              Years of logistics expertise handling air, sea, and land cargo
-              operations with efficiency and professionalism.
-            </p>
-          </div>
-
-          <div className="bg-white text-gray-700 p-8 rounded-xl shadow-xl">
-            <h3 className="text-xl font-bold text-blue-600 mb-3">
-              Our Vision
-            </h3>
-            <p>
-              To become a globally recognized logistics partner known for
-              innovation, reliability, and exceptional customer service.
-            </p>
-          </div>
-
-          <div className="bg-white text-gray-700 p-8 rounded-xl shadow-xl">
-            <h3 className="text-xl font-bold text-blue-600 mb-3">
-              Our Mission
-            </h3>
-            <p>
-              Deliver safe, fast, and cost-effective freight solutions while
-              building long-term partnerships with clients worldwide.
-            </p>
-          </div>
-
+        <div className="bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold">
+          Trusted Across Africa
         </div>
-      </section>
+      </motion.div>
 
+      {/* GLOBAL FLYER */}
+      <motion.div
+        whileHover={{ scale: 1.05 }}
+        className="bg-gray-900 text-white p-8 rounded-2xl shadow-xl"
+      >
+        <h3 className="text-2xl font-bold mb-3">
+          🌍 GLOBAL NETWORK
+        </h3>
 
-     {/* ================= SERVICES ================= */}
-<section className="bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-100 py-24">
+        <p className="mb-4">
+          From ports to airports, Jaliwa Freight branding represents secure
+          logistics worldwide.
+        </p>
 
-  <h2 className="text-4xl font-bold text-center text-blue-800 mb-16">
-    Our Services
-  </h2>
+        <div className="border border-yellow-400 px-4 py-2 rounded-lg inline-block">
+          Secure • Fast • Reliable
+        </div>
+      </motion.div>
 
-  <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto px-6">
+    </div>
+  </div>
+</section>
 
-    {/* Air Freight */}
-    <div className="bg-white/70 backdrop-blur-lg border border-blue-100 p-10 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-3 transition duration-300">
-      <div className="text-4xl mb-4">✈️</div>
-      <h3 className="text-xl font-bold text-blue-700 mb-3">
-        Air Freight
-      </h3>
-      <p className="text-gray-600">
-        Fast international cargo delivery worldwide with secure handling
-        and efficient customs processing.
+   {/* ================= PREMIUM SERVICES SECTION ================= */}
+<section className="relative py-24 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
+
+  {/* Background Glow */}
+  <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,#2563eb,transparent_70%)]"></div>
+
+  <div className="relative max-w-7xl mx-auto px-6">
+
+    {/* Heading */}
+    <div className="text-center mb-16">
+      <h2 className="text-4xl font-bold text-gray-900">
+        Our Logistics Services
+      </h2>
+      <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+        Jaliwa Freight delivers reliable global transportation solutions
+        across air, sea, and road networks with precision and speed.
       </p>
     </div>
 
-    {/* Sea Freight */}
-    <div className="bg-white/70 backdrop-blur-lg border border-blue-100 p-10 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-3 transition duration-300">
-      <div className="text-4xl mb-4">🚢</div>
-      <h3 className="text-xl font-bold text-blue-700 mb-3">
-        Sea Freight
-      </h3>
-      <p className="text-gray-600">
-        Reliable and economical shipping solutions for large cargo and
-        global import/export logistics.
-      </p>
-    </div>
+    {/* Service Cards */}
+    <div className="grid md:grid-cols-3 gap-10">
 
-    {/* Cargo Tracking */}
-    <div className="bg-white/70 backdrop-blur-lg border border-blue-100 p-10 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-3 transition duration-300">
-      <div className="text-4xl mb-4">📦</div>
-      <h3 className="text-xl font-bold text-blue-700 mb-3">
-        Cargo Tracking
-      </h3>
-      <p className="text-gray-600">
-        Monitor shipments in real time through our advanced cargo tracking
-        system available 24/7.
-      </p>
+      {/* AIR FREIGHT */}
+      <div className="group relative p-8 rounded-3xl bg-white/70 backdrop-blur-xl shadow-lg border border-gray-200 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3">
+
+        <div className="text-4xl mb-4">✈️</div>
+
+        <h3 className="text-xl font-semibold mb-3">
+          Air Freight
+        </h3>
+
+        <p className="text-gray-600 mb-6">
+          Fast international cargo delivery with priority handling and
+          secure global airline partnerships.
+        </p>
+
+        <span className="text-blue-600 font-medium group-hover:translate-x-2 inline-block transition">
+          Express Global Delivery →
+        </span>
+
+      </div>
+
+      {/* SEA FREIGHT */}
+      <div className="group relative p-8 rounded-3xl bg-white/70 backdrop-blur-xl shadow-lg border border-gray-200 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3">
+
+        <div className="text-4xl mb-4">🚢</div>
+
+        <h3 className="text-xl font-semibold mb-3">
+          Sea Freight
+        </h3>
+
+        <p className="text-gray-600 mb-6">
+          Cost-effective bulk shipping with worldwide port coverage
+          and reliable cargo consolidation services.
+        </p>
+
+        <span className="text-blue-600 font-medium group-hover:translate-x-2 inline-block transition">
+          Global Ocean Network →
+        </span>
+
+      </div>
+
+      {/* ROAD TRANSPORT */}
+      <div className="group relative p-8 rounded-3xl bg-white/70 backdrop-blur-xl shadow-lg border border-gray-200 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3">
+
+        <div className="text-4xl mb-4">🚚</div>
+
+        <h3 className="text-xl font-semibold mb-3">
+          Road Transport
+        </h3>
+
+        <p className="text-gray-600 mb-6">
+          Reliable inland delivery supported by tracking systems
+          and branded Jaliwa Freight logistics vehicles.
+        </p>
+
+        <span className="text-blue-600 font-medium group-hover:translate-x-2 inline-block transition">
+          Regional Distribution →
+        </span>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+      {/* WHY CHOOSE US */}
+      <section className="bg-gray-100 py-20 px-6">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <motion.div
+            initial={{ x: -60, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.7 }}
+          >
+            <h2 className="text-4xl font-bold mb-6">
+              Why Choose Jaliwa Freight?
+            </h2>
+
+            <ul className="space-y-4 text-lg">
+              <li>✔ Global logistics network</li>
+              <li>✔ Secure cargo handling</li>
+              <li>✔ Fast customs clearance</li>
+              <li>✔ Dedicated customer support</li>
+            </ul>
+          </motion.div>
+
+          <motion.div
+            initial={{ x: 60, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.7 }}
+            className="bg-white p-10 rounded-2xl shadow-xl"
+          >
+            <h3 className="text-2xl font-semibold mb-4">
+              Trusted Logistics Partner
+            </h3>
+            <p className="text-gray-600">
+              We combine technology, expertise, and global partnerships to
+              deliver freight solutions tailored for businesses of all sizes.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* STATS */}
+      <section className="py-20 px-6 text-center">
+        <div className="grid md:grid-cols-4 gap-10 max-w-6xl mx-auto">
+          {[
+            { number: "120+", label: "Countries Served" },
+            { number: "5K+", label: "Shipments Delivered" },
+            { number: "98%", label: "Customer Satisfaction" },
+            { number: "24/7", label: "Support" },
+          ].map((stat, i) => (
+            <motion.div
+              key={i}
+              initial={{ scale: 0.8, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ delay: i * 0.2 }}
+            >
+              <h3 className="text-4xl font-bold text-red-500">
+                {stat.number}
+              </h3>
+              <p className="mt-2 text-gray-600">{stat.label}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+     {/* ===== PREMIUM ENTERPRISE CTA SECTION ===== */}
+<section className="relative bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white py-20 px-6 overflow-hidden">
+
+  {/* background glow */}
+  <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_#ffffff22,_transparent_70%)]"></div>
+
+  <div className="relative max-w-6xl mx-auto text-center">
+
+    <h2 className="text-4xl md:text-5xl font-bold mb-6">
+      Ready to Move Your Cargo Worldwide?
+    </h2>
+
+    <p className="text-lg text-gray-200 max-w-3xl mx-auto mb-10">
+      Jaliwa Freight Logistics provides secure air, sea, and road freight
+      solutions connecting businesses across global markets with speed,
+      reliability, and precision.
+    </p>
+
+    <div className="flex flex-col md:flex-row justify-center gap-6">
+      
+      <a
+        href="/quote"
+        className="bg-yellow-400 text-black font-semibold px-8 py-4 rounded-xl hover:scale-105 transition duration-300 shadow-xl"
+      >
+        Get a Shipping Quote
+      </a>
+
+      <a
+        href="/contact"
+        className="border border-white px-8 py-4 rounded-xl hover:bg-white hover:text-blue-900 transition duration-300"
+      >
+        Speak With Our Team
+      </a>
+
     </div>
 
   </div>
 </section>
-
-
-{/* ================= WHY CHOOSE US ================= */}
-<section className="bg-gradient-to-r from-blue-700 via-cyan-600 to-blue-800 text-white py-24">
-
-  <h2 className="text-4xl font-bold text-center mb-16">
-    Why Choose Jaliwa Freight Ltd
-  </h2>
-
-  <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto px-6 text-center">
-
-    {/* Fast Delivery */}
-    <div className="bg-white/10 backdrop-blur-lg p-10 rounded-2xl shadow-lg hover:scale-105 transition">
-      <div className="text-4xl mb-4">⚡</div>
-      <h3 className="font-semibold text-xl mb-3">
-        Fast Delivery
-      </h3>
-      <p className="text-blue-100">
-        Optimized logistics routes ensure faster cargo transportation
-        across international destinations.
-      </p>
-    </div>
-
-    {/* Global Network */}
-    <div className="bg-white/10 backdrop-blur-lg p-10 rounded-2xl shadow-lg hover:scale-105 transition">
-      <div className="text-4xl mb-4">🌍</div>
-      <h3 className="font-semibold text-xl mb-3">
-        Global Network
-      </h3>
-      <p className="text-blue-100">
-        Strong partnerships with international carriers and agents
-        worldwide.
-      </p>
-    </div>
-
-    {/* Secure Handling */}
-    <div className="bg-white/10 backdrop-blur-lg p-10 rounded-2xl shadow-lg hover:scale-105 transition">
-      <div className="text-4xl mb-4">🔒</div>
-      <h3 className="font-semibold text-xl mb-3">
-        Secure Handling
-      </h3>
-      <p className="text-blue-100">
-        Professional cargo management ensuring safety, reliability,
-        and compliance with global standards.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-
-      {/* TRACK CTA */}
-      <section className="bg-blue-700 text-white text-center py-20">
-        <h2 className="text-3xl font-bold mb-4">
-          Track Your Shipment Anytime
-        </h2>
-
-        <p className="mb-6">
-          Use our online cargo tracking system to monitor shipment progress
-          in real time.
-        </p>
-
-        <a
-          href="/track"
-          className="bg-white text-blue-700 px-6 py-3 rounded-lg font-semibold shadow"
-        >
-          Track Cargo
-        </a>
-      </section>
-
-
-      {/* QUOTE CTA */}
-      <section className="py-20 text-center bg-gradient-to-r from-cyan-500 to-blue-600 text-white">
-        <h2 className="text-3xl font-bold mb-6">
-          Ready to Ship With Us?
-        </h2>
-
-        <p className="mb-8">
-          Request a freight quote today and let our logistics experts
-          handle your cargo transportation needs.
-        </p>
-
-        <a
-          href="/quote"
-          className="bg-white text-blue-700 px-8 py-4 rounded-xl font-bold shadow-lg"
-        >
-          Request a Free Quote
-        </a>
-      </section>
-
-    </div>
+{/* ===== END PREMIUM CTA ===== */}
+    </main>
   );
 }
