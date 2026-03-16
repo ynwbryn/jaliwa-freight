@@ -3,103 +3,121 @@
 import { useState } from "react";
 
 export default function TrackPage() {
-  const [trackingNumber, setTrackingNumber] = useState("");
+  const [tracking, setTracking] = useState("");
   const [shipment, setShipment] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   async function handleTrack(e) {
     e.preventDefault();
+
     setLoading(true);
+    setError("");
+    setShipment(null);
 
-    const res = await fetch(`/api/track?tracking=${trackingNumber}`);
-    const data = await res.json();
+    try {
+      const res = await fetch(
+        `/api/track?tracking=${tracking}`
+      );
 
-    setShipment(data);
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error);
+      }
+
+      setShipment(data);
+    } catch (err) {
+      setError(err.message);
+    }
+
     setLoading(false);
   }
 
-  const timeline = [
-    { label: "Order Received", value: 10 },
-    { label: "Picked Up", value: 25 },
-    { label: "In Transit", value: 50 },
-    { label: "Customs Clearance", value: 70 },
-    { label: "Out For Delivery", value: 90 },
-    { label: "Delivered", value: 100 },
-  ];
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100 flex justify-center items-start py-12 px-4">
+    <div className="min-h-screen bg-gray-50 py-20 px-6">
+      <div className="max-w-4xl mx-auto">
 
-      <div className="w-full max-w-3xl bg-white rounded-2xl shadow-2xl p-10 border border-blue-100">
+        {/* SEARCH CARD */}
+        <div className="bg-white shadow-xl rounded-2xl p-10 text-center">
+          <h1 className="text-4xl font-bold text-blue-700 mb-6">
+            Track Your Shipment
+          </h1>
 
-        <h1 className="text-4xl font-bold text-blue-700 mb-8 text-center">
-          Track Your Shipment
-        </h1>
-
-        {/* SEARCH FORM */}
-        <form onSubmit={handleTrack} className="flex gap-3 mb-10">
-          <input
-            type="text"
-            placeholder="Enter Tracking Number"
-            value={trackingNumber}
-            onChange={(e) => setTrackingNumber(e.target.value)}
-            className="flex-1 border-2 border-blue-200 focus:border-blue-500 outline-none rounded-lg px-5 py-3 text-gray-800 shadow-sm"
-            required
-          />
-
-          <button
-            type="submit"
-            className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-6 py-3 rounded-lg font-semibold shadow hover:scale-105 transition"
+          <form
+            onSubmit={handleTrack}
+            className="flex gap-3"
           >
-            {loading ? "Tracking..." : "Track"}
-          </button>
-        </form>
+            <input
+              type="text"
+              placeholder="Enter Tracking Number"
+              value={tracking}
+              onChange={(e) =>
+                setTracking(e.target.value)
+              }
+              className="border rounded-lg px-4 py-3 w-full"
+              required
+            />
 
-        {/* RESULTS */}
+            <button className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-6 rounded-lg">
+              Track
+            </button>
+          </form>
+        </div>
+
+        {/* LOADING */}
+        {loading && (
+          <p className="text-center mt-6 font-semibold">
+            Loading shipment...
+          </p>
+        )}
+
+        {/* ERROR */}
+        {error && (
+          <p className="text-center text-red-600 mt-6">
+            {error}
+          </p>
+        )}
+
+        {/* RESULT */}
         {shipment && (
-          <div className="bg-blue-50 rounded-xl p-6 shadow-inner">
-
-            <h2 className="text-2xl font-semibold text-blue-700 mb-6">
-              Shipment Status
+          <div className="bg-white shadow-xl rounded-2xl p-8 mt-10">
+            <h2 className="text-2xl font-bold text-blue-700 mb-6">
+              Shipment Details
             </h2>
 
-            {/* EVENTS */}
-            <div className="space-y-4">
-              {shipment.events?.map((event, index) => (
-                <div
-                  key={index}
-                  className="bg-white p-4 rounded-lg shadow border-l-4 border-blue-500"
-                >
-                  <p className="text-gray-800 font-semibold">
-                    📍 {event.location}
-                  </p>
+            <p><strong>Status:</strong> {shipment.status}</p>
+            <p><strong>Origin:</strong> {shipment.origin}</p>
+            <p><strong>Destination:</strong> {shipment.destination}</p>
 
-                  <p className="text-sm text-gray-600">
-                    {new Date(event.createdAt).toLocaleString()}
+            {/* DHL STYLE TIMELINE */}
+            <div className="mt-8">
+              <h3 className="font-bold mb-4">
+                Tracking History
+              </h3>
+
+              {shipment.events.map((event, i) => (
+                <div
+                  key={i}
+                  className="border-l-4 border-blue-600 pl-4 mb-6"
+                >
+                  <p className="font-semibold">
+                    {event.location}
+                  </p>
+                  <p className="text-gray-600">
+                    {event.description}
+                  </p>
+                  <p className="text-xs text-gray-500">
+                    {new Date(
+                      event.createdAt
+                    ).toLocaleString()}
                   </p>
                 </div>
               ))}
             </div>
-
-            {/* PROGRESS BAR */}
-            <div className="mt-8">
-              <div className="w-full bg-gray-200 rounded-full h-5 overflow-hidden">
-                <div
-                  className="bg-gradient-to-r from-blue-500 to-cyan-500 h-5 transition-all duration-700"
-                  style={{ width: `${shipment.progress}%` }}
-                ></div>
-              </div>
-
-              <p className="text-center mt-3 font-semibold text-blue-700">
-                {shipment.progress}% Completed
-              </p>
-            </div>
-
           </div>
         )}
-
       </div>
-
     </div>
   );
 }

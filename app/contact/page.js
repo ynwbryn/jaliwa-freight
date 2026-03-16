@@ -1,111 +1,135 @@
 "use client";
 
-export default function Contact() {
+import { motion } from "framer-motion";
+import { Mail, Phone, MapPin, Clock } from "lucide-react";
+
+export default function ContactPage() {
 
   const departments = [
     {
       name: "Customer Service",
       description:
-        "General inquiries, shipment tracking assistance and customer support.",
-      email: "customerservice@jaliwafreight.co.ke",
-      color: "from-blue-500 to-cyan-500",
+        "General enquiries, shipment tracking assistance and customer support.",
+      email: "customerservice@jaliwafreightltd.com",
     },
     {
       name: "Bookings",
-      description: "Cargo reservations and shipment bookings.",
-      email: "booking@jaliwafreight.co.ke",
-      color: "from-indigo-500 to-blue-600",
+      description:
+        "Cargo reservations, export bookings and shipment scheduling.",
+      email: "booking@jaliwafreightltd.com",
     },
     {
       name: "Operations",
-      description: "Operational updates and cargo handling coordination.",
-      email: "operations@jaliwafreight.co.ke",
-      color: "from-sky-500 to-teal-500",
+      description:
+        "Operational updates and cargo handling coordination.",
+      email: "operations@jaliwafreightltd.com",
     },
     {
       name: "Documentation",
-      description: "Export documentation and customs paperwork.",
-      email: "documentation@jaliwafreight.co.ke",
-      color: "from-purple-500 to-indigo-500",
+      description:
+        "Export documentation and customs clearance processing.",
+      email: "documentation@jaliwafreightltd.com",
     },
     {
       name: "Quality Control (QC)",
-      description: "Cargo inspection and quality assurance services.",
-      email: "qc@jaliwafreight.co.ke",
-      color: "from-blue-600 to-cyan-600",
-    },
-    {
-      name: "Sales",
-      description: "Business partnerships and service inquiries.",
-      email: "sales@jaliwafreight.co.ke",
-      color: "from-teal-500 to-blue-500",
-    },
-    {
-      name: "Commercial",
-      description: "Pricing, contracts and commercial discussions.",
-      email: "commercial@jaliwafreight.co.ke",
-      color: "from-indigo-600 to-purple-500",
-    },
-    {
-      name: "Human Resources",
-      description: "Recruitment, careers and HR inquiries.",
-      email: "hr@jaliwafreight.co.ke",
-      color: "from-cyan-500 to-blue-600",
+      description:
+        "Cargo inspection, compliance verification and quality assurance.",
+      email: "qc@jaliwafreightltd.com",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-100 py-14 px-6">
+    <div className="min-h-screen bg-gradient-to-br from-[#fff7cc] via-white to-[#ffe680]">
 
-      {/* TITLE */}
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-blue-800">
+      {/* HERO */}
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-center py-20 px-6"
+      >
+        <h1 className="text-5xl font-bold text-red-600">
           Contact Jaliwa Freight Ltd
         </h1>
 
-        <p className="text-gray-600 mt-3">
-          📍 JKIA-Toll, Nairobi, Kenya <br />
-          📞 +254 119 981 188
+        <p className="text-gray-600 mt-4">
+          Reliable Global Logistics & Freight Forwarding Solutions
         </p>
-      </div>
 
-      {/* CARDS */}
-      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-center gap-6 mt-8 text-gray-700">
+
+          <div className="flex items-center gap-2">
+            <MapPin size={18} />
+            JKIA – Toll, Nairobi, Kenya
+          </div>
+
+          <div className="flex items-center gap-2">
+            <Phone size={18} />
+            +254 119 981 188
+          </div>
+
+          <div className="flex items-center gap-2">
+            <Clock size={18} />
+            Mon – Fri | 8:00 AM – 6:00 PM
+          </div>
+
+        </div>
+      </motion.section>
+
+      {/* DEPARTMENTS */}
+      <section className="max-w-6xl mx-auto px-6 pb-20 grid md:grid-cols-3 gap-8">
+
         {departments.map((dept, index) => (
-          <div
+          <motion.div
             key={index}
-            className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-2xl transition duration-300"
+            whileHover={{ y: -8, scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+            className="bg-white rounded-2xl shadow-lg p-6 border-t-4 border-red-500 hover:shadow-2xl"
           >
-            <h3 className="text-xl font-bold text-blue-700 mb-3">
+            <h3 className="text-xl font-semibold text-red-600 mb-2">
               {dept.name}
             </h3>
 
-            <p className="text-gray-600 mb-5">
+            <p className="text-gray-600 text-sm mb-6">
               {dept.description}
             </p>
 
             <a
               href={`mailto:${dept.email}`}
-              className={`block text-center text-white font-semibold py-3 rounded-lg bg-gradient-to-r ${dept.color} hover:scale-105 transition`}
+              className="flex items-center justify-center gap-2 bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition"
             >
-              Email {dept.name}
+              <Mail size={18} />
+              Email Department
             </a>
 
-            <p className="text-sm text-gray-500 text-center mt-3">
+            <p className="text-center text-sm text-gray-500 mt-4">
               {dept.email}
             </p>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </section>
 
-      {/* WHATSAPP BUTTON */}
-      <a
-        href="https://wa.me/254119981188"
-        target="_blank"
-        className="fixed bottom-6 right-6 bg-green-500 text-white px-6 py-3 rounded-full shadow-xl hover:bg-green-600 transition"
-      >
-        WhatsApp Us
-      </a>
+      {/* TRUST SECTION (DHL STYLE) */}
+      <section className="bg-red-600 text-white py-14">
+        <div className="max-w-5xl mx-auto grid md:grid-cols-3 text-center gap-8">
+
+          <div>
+            <h3 className="text-2xl font-bold">24/7</h3>
+            <p className="opacity-90">Cargo Monitoring & Support</p>
+          </div>
+
+          <div>
+            <h3 className="text-2xl font-bold">Global</h3>
+            <p className="opacity-90">International Freight Network</p>
+          </div>
+
+          <div>
+            <h3 className="text-2xl font-bold">Secure</h3>
+            <p className="opacity-90">Licensed Customs Clearance</p>
+          </div>
+
+        </div>
+      </section>
 
     </div>
   );

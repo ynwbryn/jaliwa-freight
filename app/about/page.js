@@ -1,6 +1,9 @@
+import Authority from "../components/Authority";
+import Exports from "../components/Exports";
 import Stats from "../components/Stats";
 import Image from "next/image";
 import Reveal from "../components/Reveal";
+import QuoteCTA from "../components/QuoteCTA";
 export default function About() {
   return (
     <div className="bg-gray-50 text-gray-800">
@@ -257,6 +260,10 @@ export default function About() {
         </div>
       </section>
       </Reveal>
+
+<Exports />
+<Authority />
+<QuoteCTA />
 
     </div>
   );
