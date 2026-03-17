@@ -31,10 +31,10 @@ export default function ContactPage() {
       email: "documentation@jaliwafreightltd.com",
     },
     {
-      name: "Quality Control (QC)",
+      name: "General Inquiries",
       description:
-        "Cargo inspection, compliance verification and quality assurance.",
-      email: "qc@jaliwafreightltd.com",
+        "For all other questions, partnerships, and general communication.",
+       email: "info@jaliwafreightltd.com", 
     },
   ];
 
