@@ -111,6 +111,102 @@ const planeScale = useTransform(scrollY, [0, 500], [1, 1.08]);
 
         
         </motion.div>
+
+        "use client";
+import { motion } from "framer-motion";
+
+{/* ===== PREMIUM BROCHURE SECTION ===== */}
+<section className="relative py-24 text-white overflow-hidden">
+
+  {/* Background */}
+  <div className="absolute inset-0">
+    <img
+      src="/images/freight-bg.jpg"
+      alt="Logistics Background"
+      className="w-full h-full object-cover scale-105"
+    />
+    <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/60"></div>
+  </div>
+
+  {/* Content */}
+  <div className="relative max-w-7xl mx-auto px-6">
+
+    {/* Heading */}
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="text-center mb-16"
+    >
+      <h2 className="text-3xl md:text-5xl font-bold mb-4">
+        Why Choose Jaliwa Freight
+      </h2>
+      <p className="text-gray-300 max-w-2xl mx-auto">
+        Delivering excellence through innovation, global reach, and trusted logistics solutions.
+      </p>
+    </motion.div>
+
+    {/* Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+      {[
+        {
+          num: "01",
+          title: "Tailored Transport Solutions",
+          text: "Custom logistics solutions designed to meet your cargo requirements with precision and care.",
+        },
+        {
+          num: "02",
+          title: "Global Reach & Expertise",
+          text: "Extensive international network ensuring reliable and efficient worldwide shipping.",
+        },
+        {
+          num: "03",
+          title: "Customer Satisfaction",
+          text: "We focus on delivering consistent, transparent, and high-quality service every time.",
+        },
+        {
+          num: "04",
+          title: "Quality & Efficiency",
+          text: "Optimized operations ensuring speed, safety, and reliability in every shipment.",
+        },
+      ].map((item, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: i * 0.2, duration: 0.6 }}
+          viewport={{ once: true }}
+          className="group relative pl-6 border-l border-white/30 hover:border-yellow-400 transition duration-300"
+        >
+          {/* Vertical Glow Line */}
+          <div className="absolute left-0 top-0 h-full w-[2px] bg-white/30 group-hover:bg-yellow-400 transition"></div>
+
+          {/* Number */}
+          <h3 className="text-2xl font-bold text-yellow-400 mb-2">
+            {item.num}
+          </h3>
+
+          {/* Title */}
+          <h4 className="text-lg font-semibold mb-3 group-hover:text-yellow-300 transition">
+            {item.title}
+          </h4>
+
+          {/* Text */}
+          <p className="text-sm text-gray-300 leading-relaxed">
+            {item.text}
+          </p>
+
+          {/* Hover Glow Effect */}
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-white/5 blur-xl transition duration-500"></div>
+        </motion.div>
+      ))}
+
+    </div>
+  </div>
+</section>
+{/* ===== END PREMIUM SECTION ===== */}
       
 {/* BRAND FLYERS / LOGISTICS BRANDING */}
 <section className="relative py-16 bg-white overflow-hidden">
