@@ -111,10 +111,6 @@ const planeScale = useTransform(scrollY, [0, 500], [1, 1.08]);
 
         
         </motion.div>
-
-        "use client";
-import { motion } from "framer-motion";
-
       
 {/* BRAND FLYERS / LOGISTICS BRANDING */}
 <section className="relative py-16 bg-white overflow-hidden">
@@ -283,127 +279,41 @@ import { motion } from "framer-motion";
 </section>
 
       {/* WHY CHOOSE US */}
-      <section className="relative bg-gradient-to-b from-[#0b0f19] to-[#111827] py-24 overflow-hidden">
+      <section className="bg-gray-100 py-20 px-6">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <motion.div
+            initial={{ x: -60, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.7 }}
+          >
+            <h2 className="text-4xl font-bold mb-6">
+              Why Choose Jaliwa Freight?
+            </h2>
 
-  {/* BACKGROUND LIGHT EFFECT */}
-  <div className="absolute inset-0 opacity-20 pointer-events-none">
-    <div className="absolute w-[600px] h-[600px] bg-yellow-500 blur-[180px] top-[-200px] left-[-150px]" />
-    <div className="absolute w-[500px] h-[500px] bg-blue-600 blur-[160px] bottom-[-200px] right-[-150px]" />
-  </div>
+            <ul className="space-y-4 text-lg">
+              <li>✔ Global logistics network</li>
+              <li>✔ Secure cargo handling</li>
+              <li>✔ Fast customs clearance</li>
+              <li>✔ Dedicated customer support</li>
+            </ul>
+          </motion.div>
 
-  <div className="relative max-w-7xl mx-auto px-6">
-
-    {/* HEADER */}
-    <div className="text-center mb-20">
-      <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-wide">
-        Why Choose Jaliwa Freight
-      </h2>
-
-      <p className="text-gray-300 max-w-3xl mx-auto text-lg">
-        Delivering excellence through innovation, global reach, and trusted
-        logistics solutions designed for modern supply chains.
-      </p>
-    </div>
-
-    {/* BROCHURE GRID */}
-    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-      {/* CARD */}
-      <div className="group relative bg-[#111827]/80 backdrop-blur-xl border border-gray-700 rounded-2xl p-8 transition duration-500 hover:-translate-y-3 hover:border-yellow-400 hover:shadow-[0_20px_60px_rgba(255,204,0,0.15)]">
-
-        <span className="text-yellow-400 text-2xl font-bold">01</span>
-
-        <h3 className="text-white text-xl font-semibold mt-4 mb-3">
-          Tailored Transport Solutions
-        </h3>
-
-        <p className="text-gray-400 text-sm leading-relaxed">
-          Custom logistics strategies engineered to match your cargo
-          requirements with precision handling and operational efficiency.
-        </p>
-
-        <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition bg-gradient-to-r from-transparent via-yellow-400/10 to-transparent" />
-      </div>
-
-
-      {/* CARD */}
-      <div className="group relative bg-[#111827]/80 backdrop-blur-xl border border-gray-700 rounded-2xl p-8 transition duration-500 hover:-translate-y-3 hover:border-yellow-400 hover:shadow-[0_20px_60px_rgba(255,204,0,0.15)]">
-
-        <span className="text-yellow-400 text-2xl font-bold">02</span>
-
-        <h3 className="text-white text-xl font-semibold mt-4 mb-3">
-          Global Reach & Expertise
-        </h3>
-
-        <p className="text-gray-400 text-sm leading-relaxed">
-          Extensive international logistics network ensuring reliable,
-          compliant, and efficient worldwide freight movement.
-        </p>
-
-        <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition bg-gradient-to-r from-transparent via-yellow-400/10 to-transparent" />
-      </div>
-
-
-      {/* CARD */}
-      <div className="group relative bg-[#111827]/80 backdrop-blur-xl border border-gray-700 rounded-2xl p-8 transition duration-500 hover:-translate-y-3 hover:border-yellow-400 hover:shadow-[0_20px_60px_rgba(255,204,0,0.15)]">
-
-        <span className="text-yellow-400 text-2xl font-bold">03</span>
-
-        <h3 className="text-white text-xl font-semibold mt-4 mb-3">
-          Customer Satisfaction
-        </h3>
-
-        <p className="text-gray-400 text-sm leading-relaxed">
-          Transparent communication and consistent service delivery
-          ensuring confidence and long-term partnerships.
-        </p>
-
-        <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition bg-gradient-to-r from-transparent via-yellow-400/10 to-transparent" />
-      </div>
-
-
-      {/* CARD */}
-      <div className="group relative bg-[#111827]/80 backdrop-blur-xl border border-gray-700 rounded-2xl p-8 transition duration-500 hover:-translate-y-3 hover:border-yellow-400 hover:shadow-[0_20px_60px_rgba(255,204,0,0.15)]">
-
-        <span className="text-yellow-400 text-2xl font-bold">04</span>
-
-        <h3 className="text-white text-xl font-semibold mt-4 mb-3">
-          Quality & Efficiency
-        </h3>
-
-        <p className="text-gray-400 text-sm leading-relaxed">
-          Optimized logistics operations delivering speed, safety,
-          and reliability across every shipment lifecycle.
-        </p>
-
-        <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition bg-gradient-to-r from-transparent via-yellow-400/10 to-transparent" />
-      </div>
-
-    </div>
-
-
-    {/* TRUST STATS */}
-    <div className="grid md:grid-cols-3 gap-10 text-center mt-20 border-t border-gray-700 pt-14">
-
-      <div>
-        <h3 className="text-4xl font-bold text-yellow-400">120+</h3>
-        <p className="text-gray-400 mt-2">Global Partners</p>
-      </div>
-
-      <div>
-        <h3 className="text-4xl font-bold text-yellow-400">5K+</h3>
-        <p className="text-gray-400 mt-2">Shipments Delivered</p>
-      </div>
-
-      <div>
-        <h3 className="text-4xl font-bold text-yellow-400">98%</h3>
-        <p className="text-gray-400 mt-2">Client Satisfaction</p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
+          <motion.div
+            initial={{ x: 60, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.7 }}
+            className="bg-white p-10 rounded-2xl shadow-xl"
+          >
+            <h3 className="text-2xl font-semibold mb-4">
+              Trusted Logistics Partner
+            </h3>
+            <p className="text-gray-600">
+              We combine technology, expertise, and global partnerships to
+              deliver freight solutions tailored for businesses of all sizes.
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
       {/* STATS */}
       <section className="py-20 px-6 text-center">

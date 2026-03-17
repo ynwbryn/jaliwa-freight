@@ -1,0 +1,155 @@
+[33mcommit 5f2bd3ba0bb4688f7dec1cb4b338aa203d7ced67[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Bryn <youremail@gmail.com>
+Date:   Tue Mar 17 13:43:52 2026 +0300
+
+    Premium DHL-style brochures section with animations and design upgrade
+
+[33mcommit 8ca6d6ab444c63f61df76a89cd5d49f437e836b2[m
+Author: Bryn <youremail@gmail.com>
+Date:   Tue Mar 17 13:33:08 2026 +0300
+
+    Upgraded premium logistics brochure section
+
+[33mcommit be308bec7d973d67945e53e50a1a752e3a5ed203[m
+Author: Bryn <youremail@gmail.com>
+Date:   Tue Mar 17 13:25:46 2026 +0300
+
+    Added premium brochure section after logistics services
+
+[33mcommit ba1020c63cb57d34ce170762c582ce6cf6c1152a[m
+Author: Bryn <youremail@gmail.com>
+Date:   Tue Mar 17 10:17:32 2026 +0300
+
+    Fixed AdminClient import path
+
+[33mcommit e97d56acef165d803aabf2b991636e0f597cbdd9[m
+Author: Bryn <youremail@gmail.com>
+Date:   Tue Mar 17 10:14:03 2026 +0300
+
+    Next level contact page with WhatsApp + smart actions
+
+[33mcommit e51e5253206b281488624a112136952a92c517d3[m
+Author: Bryn <youremail@gmail.com>
+Date:   Tue Mar 17 10:10:06 2026 +0300
+
+    Removed QC and added general inquiries with info email
+
+[33mcommit 857e0b4c531c9b61d83b794be072ef5fa2a74a2e[m
+Author: Bryn <youremail@gmail.com>
+Date:   Mon Mar 16 18:20:24 2026 +0300
+
+    Updated website pages and fixed shipment issues
+
+[33mcommit 261ea55d7247b0d62571e394cf8665281032cb65[m
+Author: Bryn <youremail@gmail.com>
+Date:   Mon Mar 16 16:23:18 2026 +0300
+
+    Update tracking system and start admin panel setup
+
+[33mcommit 7895024b85881fbb4b9b5625576a8e0ee7dcb128[m
+Author: Bryn <youremail@gmail.com>
+Date:   Mon Mar 16 14:26:02 2026 +0300
+
+    Add trust & authority sections to About page
+
+[33mcommit f33328217b1c4fdc94833487eef0dd9fef9493a9[m
+Author: Bryn <youremail@gmail.com>
+Date:   Fri Mar 13 13:19:14 2026 +0300
+
+    Improve services and why choose section design
+
+[33mcommit e1654d6c0d1ddd446f6b9ad58b3afefa08435f9c[m
+Author: Bryn <youremail@gmail.com>
+Date:   Fri Mar 13 13:14:25 2026 +0300
+
+    Upgrade homepage design and add professional logistics content
+
+[33mcommit 0b46250c77e90353ebfb1b00efaef798177e5dfe[m
+Author: Bryn <youremail@gmail.com>
+Date:   Fri Mar 13 13:06:01 2026 +0300
+
+    Final UI visibility fixes for track, quote and contact pages
+
+[33mcommit 9eca69838fb71d03ab8748c6e06d649bc4e7d6ff[m
+Author: Bryn <youremail@gmail.com>
+Date:   Fri Mar 13 12:35:21 2026 +0300
+
+    Fix duplicate header and improve contact and quote page design
+
+[33mcommit 683e6b964f9979d51545d63c9b813ddaa1067d82[m
+Author: Bryn <youremail@gmail.com>
+Date:   Fri Mar 13 12:26:28 2026 +0300
+
+    Fix duplicate header and improve contact design
+
+[33mcommit b91517e21111249aaf9c67a4af97904b4e4536ed[m
+Author: Bryn <youremail@gmail.com>
+Date:   Fri Mar 13 12:21:35 2026 +0300
+
+    New bright layout with contact navigation
+
+[33mcommit f69d77c02e83d54b71569ac6cb41e76dda5febe4[m
+Author: Bryn <youremail@gmail.com>
+Date:   Fri Mar 13 12:15:01 2026 +0300
+
+    Improve layout and navigation
+
+[33mcommit 2dc982c8cf02e0114d0282621a8c4734eac40369[m
+Author: Bryn <youremail@gmail.com>
+Date:   Fri Mar 13 10:23:02 2026 +0300
+
+    Update
+
+[33mcommit 2e8e06660c4e3397d9aa8f060ed7a2d9c8de342d[m
+Author: Bryn <youremail@gmail.com>
+Date:   Thu Mar 12 17:29:36 2026 +0300
+
+    cleanup
+
+[33mcommit 7e55e6504721546845095b99ef191838188f0867[m
+Author: Bryn <youremail@gmail.com>
+Date:   Thu Mar 12 16:39:15 2026 +0300
+
+    fix: remove static export mode
+
+[33mcommit 28f3d2bfa6f619c37accb90626edddac593c6ab9[m
+Author: Bryn <youremail@gmail.com>
+Date:   Thu Mar 12 12:13:37 2026 +0300
+
+    fix layout errors
+
+[33mcommit e78360e09786bdc9766936c4deab484bd385aab6[m
+Author: Bryn <youremail@gmail.com>
+Date:   Thu Mar 12 10:53:24 2026 +0300
+
+    fix uploads route handler
+
+[33mcommit 0b6e17ecf800112284cdf4ef378ccae4cd7d7c1d[m
+Author: Bryn <youremail@gmail.com>
+Date:   Thu Mar 12 10:24:34 2026 +0300
+
+    fux nextjs app directory location
+
+[33mcommit 00cbf33fa16c7dddaf0168e89f779a2771dea9dd[m
+Author: Bryn <youremail@gmail.com>
+Date:   Thu Mar 12 09:46:55 2026 +0300
+
+    fix layout metadata error
+
+[33mcommit 130b982ffbf2dfbf2e95c5ff9f46fe8cd648cc70[m
+Author: Bryn <youremail@gmail.com>
+Date:   Thu Mar 12 09:33:25 2026 +0300
+
+    fix layout rendering
+
+[33mcommit 4c6f1bdb2ace29d38eb5578d1cc10177ac918679[m
+Author: Bryn <youremail@gmail.com>
+Date:   Thu Mar 12 09:20:54 2026 +0300
+
+    fix homepage route
+
+[33mcommit edb64d8fa6c02eee77ff33afd425e002abe39fd8[m
+Author: Bryn <youremail@gmail.com>
+Date:   Thu Mar 12 08:25:39 2026 +0300
+
+    Initial website upload
