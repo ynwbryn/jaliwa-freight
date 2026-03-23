@@ -21,7 +21,7 @@ export default function Navbar() {
              height={40}
 />
           <span className="font-bold text-blue-700">
-            Jaliwa 
+            Jaliwa Freight LTD
             </span>
         </Link>
 
