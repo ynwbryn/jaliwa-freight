@@ -1,7 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
   <rect width="200" height="200" fill="#ffffff"/>
   <circle cx="100" cy="100" r="90" fill="#1e40af"/>
-  <text x="50%" y="55%" text-anchor="middle" fill="#ffffff" font-size="70" font-family="Arial, sans-serif" font-weight="bold">
-    JFL
-  </text>
+  
+  <!-- J -->
+  <path d="M70 60 v50 a20 20 0 0 1 -20 20" stroke="#ffffff" stroke-width="10" fill="none" stroke-linecap="round"/>
+  
+  <!-- F -->
+  <path d="M95 60 v80 M95 60 h30 M95 100 h25" stroke="#ffffff" stroke-width="10" fill="none" stroke-linecap="round"/>
+  
+  <!-- L -->
+  <path d="M135 60 v80 h25" stroke="#ffffff" stroke-width="10" fill="none" stroke-linecap="round"/>
 </svg>
