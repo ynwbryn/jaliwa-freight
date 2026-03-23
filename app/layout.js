@@ -1,7 +1,7 @@
-"use client";
+
 import "./globals.css";
 import Link from "next/link";
-import { useState } from "react";
+import Navbar from "./components/Navbar";
 
 export const metadata = {
   title: "Jaliwa Freight Ltd",
@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="bg-gray-50 text-gray-800">
-<header className="sticky top-0 z-50 backdrop-blur-md bg-white/80 shadow-sm border-b border-gray-100 transition-all">
+<Navbar className="sticky top-0 z-50 backdrop-blur-md bg-white/80 shadow-sm border-b border-gray-100 transition-all">
 
   <div className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
 
@@ -106,7 +106,7 @@ export default function RootLayout({ children }) {
     </div>
   </div>
 
-</header>
+</Navbar>
 
         {/* ================= MAIN CONTENT ================= */}
         <main className="min-h-screen">
