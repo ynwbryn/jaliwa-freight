@@ -39,13 +39,26 @@ export default function Navbar() {
         </nav>
       </div>
 
-      {/* MOBILE */}
-   {menuOpen && (
- <div className="flex flex-col gap-4 mt-4 px-4 transition-all duration-300">
-    <Link href="/" onClick={closeMenu}>Home</Link>
-    <Link href="/about" onClick={closeMenu}>About</Link>
-    <Link href="/track" onClick={closeMenu}>Track</Link>
-    <Link href="/contact" onClick={closeMenu}>Contact</Link>
+{/* MOBILE */}
+{menuOpen && (
+  <div className="flex flex-col gap-4 mt-4 px-4">
+
+    <Link href="/">
+      <span onClick={() => setMenuOpen(false)}>Home</span>
+    </Link>
+
+    <Link href="/about">
+      <span onClick={() => setMenuOpen(false)}>About</span>
+    </Link>
+
+    <Link href="/track">
+      <span onClick={() => setMenuOpen(false)}>Track</span>
+    </Link>
+
+    <Link href="/contact">
+      <span onClick={() => setMenuOpen(false)}>Contact</span>
+    </Link>
+
   </div>
 )}
     </header>
