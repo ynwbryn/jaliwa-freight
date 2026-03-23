@@ -5,8 +5,7 @@ export const metadata = {
   title: "Jaliwa Freight Ltd",
   description: "Professional Logistics & Freight Services",
 
-  metadataBase: new URL("https://jaliwafreightltd.com"),
-
+metadataBase: new URL("https://www.jaliwafreightltd.com"),
   alternates: {
     canonical: "/",
   },
