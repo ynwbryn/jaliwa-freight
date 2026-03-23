@@ -4,6 +4,12 @@ import Link from "next/link";
 export const metadata = {
   title: "Jaliwa Freight Ltd",
   description: "Professional Logistics & Freight Services",
+
+  metadataBase: new URL("https://jaliwafreightltd.com"),
+
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({ children }) {
