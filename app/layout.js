@@ -1,5 +1,7 @@
+"use client";
 import "./globals.css";
 import Link from "next/link";
+import { useState } from "react";
 
 export const metadata = {
   title: "Jaliwa Freight Ltd",
@@ -17,84 +19,106 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <html lang="en">
       <body className="bg-gray-50 text-gray-800">
+<header className="sticky top-0 z-50 backdrop-blur-md bg-white/80 shadow-sm border-b border-gray-100 transition-all">
 
-        {/* ================= HEADER ================= */}
-        <header className="bg-white shadow-md sticky top-0 z-50">
-          <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+  <div className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
 
-            {/* LOGO */}
-            <Link href="/" className="flex items-center gap-2">
-            <button className="md:hidden text-2xl">
-  ☰
-</button>
-              
-               <img
-  src="/logo.png"
-  alt="Jaliwa Freight"
-  className="h-8 md:h-10"
-/>
-              
-           <span className="font-bold text-sm md:text-xl text-blue-700 hidden sm:block">
-  Jaliwa Freight
-</span>
-            </Link>
+    {/* LOGO */}
+    <Link href="/" className="flex items-center gap-2 group">
+      <img
+        src="/logo.png"
+        alt="Jaliwa Freight"
+        className="h-9 md:h-11 transition-transform duration-300 group-hover:scale-105"
+      />
+      <span className="font-bold text-sm md:text-xl text-blue-700 hidden sm:block">
+        Jaliwa Freight
+      </span>
+    </Link>
 
-            {/* NAVIGATION */}
-          <nav className="hidden md:flex items-center gap-6 font-medium">
-              <Link
-                href="/"
-                className="text-gray-700 hover:text-orange-500 transition"
-              >
-                Home
-              </Link>
+    {/* HAMBURGER */}
+    <button
+      className="md:hidden text-2xl transition-transform duration-300 hover:scale-110"
+      onClick={() => setMenuOpen(!menuOpen)}
+    >
+      {menuOpen ? "✕" : "☰"}
+    </button>
 
-              <Link
-                href="/about"
-                className="text-gray-700 hover:text-orange-500 transition"
-              >
-                About
-              </Link>
+    {/* DESKTOP NAV */}
+    <nav className="hidden md:flex items-center gap-8 font-medium">
 
-              <Link
-                href="/track"
-                className="text-gray-700 hover:text-orange-500 transition"
-              >
-                Track Cargo
-              </Link>
+      <Link href="/" className="relative group text-gray-700">
+        Home
+        <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
+      </Link>
 
-              <Link
-                href="/contact"
-                className="text-gray-700 hover:text-orange-500 transition"
-              >
-                Contact
-              </Link>
+      <Link href="/about" className="relative group text-gray-700">
+        About
+        <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
+      </Link>
 
-              {/* MAIN CTA BUTTON */}
-              <Link
-                href="/quote"
-                className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-2 rounded-lg shadow transition"
-              >
-                Get Quote
-              </Link>
+      <Link href="/track" className="relative group text-gray-700">
+        Track Cargo
+        <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
+      </Link>
 
-            </nav>
-          </div>
-        </header>
+      <Link href="/contact" className="relative group text-gray-700">
+        Contact
+        <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
+      </Link>
+
+      {/* CTA */}
+      <Link
+        href="/quote"
+        className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-5 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-300"
+      >
+        Get Quote
+      </Link>
+
+    </nav>
+  </div>
+
+  {/* 🔥 PREMIUM MOBILE MENU */}
+  <div
+    className={`md:hidden overflow-hidden transition-all duration-500 ${
+      menuOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
+    }`}
+  >
+    <div className="bg-white/95 backdrop-blur-md px-6 py-5 space-y-5 shadow-lg border-t">
+
+      <Link href="/" onClick={() => setMenuOpen(false)} className="block text-lg">Home</Link>
+      <Link href="/about" onClick={() => setMenuOpen(false)} className="block text-lg">About</Link>
+      <Link href="/track" onClick={() => setMenuOpen(false)} className="block text-lg">Track Cargo</Link>
+      <Link href="/contact" onClick={() => setMenuOpen(false)} className="block text-lg">Contact</Link>
+
+      <Link
+        href="/quote"
+        onClick={() => setMenuOpen(false)}
+        className="block text-center bg-orange-500 text-white px-4 py-3 rounded-full shadow-md"
+      >
+        Get Quote
+      </Link>
+
+    </div>
+  </div>
+
+</header>
 
         {/* ================= MAIN CONTENT ================= */}
         <main className="min-h-screen">
           {children}
         </main>
 
-        {/* ================= WHATSAPP FLOAT BUTTON ================= */}
+        {/* ================= WHATSAPP BUTTON ================= */}
         <a
           href="https://wa.me/254119981188"
           target="_blank"
           rel="noopener noreferrer"
-          className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white px-5 py-3 rounded-full shadow-lg z-50 transition"
+          className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-lg"
         >
           WhatsApp
         </a>
