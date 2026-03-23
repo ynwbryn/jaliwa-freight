@@ -20,7 +20,9 @@ export default function Navbar() {
              width={40}
              height={40}
 />
-          <span className="font-bold text-blue-700">Jaliwa Freight</span>
+          <span className="font-bold text-blue-700">
+            Jaliwa 
+            </span>
         </Link>
 
         {/* MENU BUTTON */}
@@ -38,15 +40,14 @@ export default function Navbar() {
       </div>
 
       {/* MOBILE */}
-      {menuOpen && (
-        <div className="flex flex-col gap-4 mt-4 px-4">
-          <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
-          <Link href="/track">Track</Link>
-          <Link href="/contact">Contact</Link>
-        </div>
-      )}
-
+   {menuOpen && (
+ <div className="flex flex-col gap-4 mt-4 px-4 transition-all duration-300">
+    <Link href="/" onClick={closeMenu}>Home</Link>
+    <Link href="/about" onClick={closeMenu}>About</Link>
+    <Link href="/track" onClick={closeMenu}>Track</Link>
+    <Link href="/contact" onClick={closeMenu}>Contact</Link>
+  </div>
+)}
     </header>
   );
 }
