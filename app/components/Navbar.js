@@ -36,6 +36,13 @@ export default function Navbar() {
           <Link href="/about">About</Link>
           <Link href="/track">Track</Link>
           <Link href="/contact">Contact</Link>
+
+           {/* CTA BUTTON */}
+  <Link href="/quote">
+    <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+      Get a Quote
+    </button>
+  </Link>
         </nav>
       </div>
 
