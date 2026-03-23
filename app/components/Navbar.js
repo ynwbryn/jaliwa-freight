@@ -14,7 +14,12 @@ export default function Navbar() {
 
         {/* LOGO */}
         <Link href="/" className="flex items-center gap-2">
-          <Image src="/logo.png" alt="logo" width={40} height={40} />
+          <Image
+            src="/images/logo.png"
+             alt="logo"
+             width={40}
+             height={40}
+/>
           <span className="font-bold text-blue-700">Jaliwa Freight</span>
         </Link>
 
