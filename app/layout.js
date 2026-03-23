@@ -5,9 +5,14 @@ export const metadata = {
   title: "Jaliwa Freight Ltd",
   description: "Professional Logistics & Freight Services",
 
-metadataBase: new URL("https://www.jaliwafreightltd.com"),
+  metadataBase: new URL("https://www.jaliwafreightltd.com"),
+
   alternates: {
     canonical: "/",
+  },
+
+  icons: {
+    icon: "/logo.svg",
   },
 };
 
@@ -22,19 +27,23 @@ export default function RootLayout({ children }) {
 
             {/* LOGO */}
             <Link href="/" className="flex items-center gap-2">
-              <img
-                src="/logo.png"
-                alt="Jaliwa Freight"
-                className="h-10"
-              />
-              <span className="font-bold text-xl text-blue-700">
-                Jaliwa Freight
-              </span>
+            <button className="md:hidden text-2xl">
+  ☰
+</button>
+              
+               <img
+  src="/logo.png"
+  alt="Jaliwa Freight"
+  className="h-8 md:h-10"
+/>
+              
+           <span className="font-bold text-sm md:text-xl text-blue-700 hidden sm:block">
+  Jaliwa Freight
+</span>
             </Link>
 
             {/* NAVIGATION */}
-            <nav className="flex items-center gap-6 font-medium">
-
+          <nav className="hidden md:flex items-center gap-6 font-medium">
               <Link
                 href="/"
                 className="text-gray-700 hover:text-orange-500 transition"
